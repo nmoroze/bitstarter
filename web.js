@@ -18,6 +18,17 @@ app.get('/', function(request, response) {
   response.send(data);
 });
 
+app.get('/static/css/base.css', function(request, response) {
+    var data = fs.readFileSync('static/css/base.css').toString();
+    response.setHeader('Content-Type', 'text/css');
+    response.send(data);
+});
+
+app.get('/static/css/login.css', function(request, response) {
+    var data = fs.readFileSync('static/css/login.css').toString();
+    response.setHeader('Content-Type', 'text/css');
+    response.send(data);
+});
 // Render example.com/orders
 app.get('/orders', function(request, response) {
   global.db.Order.findAll().success(function(orders) {
